@@ -1,0 +1,352 @@
+
+body{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+img{
+  max-width: 100%;
+}
+iframe{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+h2{
+  font-size: 16px;
+  color: #2E2E2E;
+  font-weight: 400;
+}
+h3{
+  margin-left: 15px;
+}
+h4{
+  margin-top: 6px;
+  color:#2E2E2E;
+}
+h4, .vistas{
+  margin-left: 10px;
+}
+#movil {
+    background-color: gray;
+    border-radius: 10px;
+    padding: 7px;
+    display: none;
+    cursor: pointer;
+}
+.nav-content{
+  display: flex;
+  flex-direction: column;
+}
+
+.container{
+  display: grid;
+  grid-template-areas: "playlist video video"
+                       "playlist buttons buttons"
+                       "playlist comments viewmore";
+  height: 100vh;
+  grid-template-rows: 500px .7fr 1fr;
+  grid-template-columns: .4fr 1fr .8fr;
+}
+
+/*Playlist*/
+.playlist{
+grid-area: playlist;
+background: #141c30;
+color: white;
+}
+.playlist img{
+  max-width: 80px;
+  max-height: 80px;
+}
+.playlist figure{
+}
+.playlist ol{
+margin-right: 15px;
+}
+.playlist li{
+  padding: 4px;
+}
+
+.lista li a{
+  color: white;
+  text-decoration: none;
+}
+ol li{
+  margin-bottom: 6px;
+}
+ol li a:hover{
+color: #f54c5d;
+background-color: rgba(0,0,0,.5);
+}
+.friend {
+  display: flex;
+  align-items: center;
+  margin: 15px;
+  cursor: pointer;
+}
+.friends img, .comments img{
+border-radius: 50%;
+max-width: 60px;
+max-height: 60px;
+border: 2px solid #ff595c;
+}
+.name{
+margin-left: 15px;
+}
+.video{
+  grid-area: video;
+}
+.vistas{
+  margin-top:-16px;
+}
+.buttons{
+grid-area: buttons;
+grid-template-areas: "description description"
+                      "action references";
+display: grid;
+grid-template-columns: 1fr 1.2fr;
+grid-template-rows: auto;
+align-items: center;
+justify-content: center;
+border-bottom: 2px solid #d4d0d0;
+}
+.add:active, .fa-share:active{
+  background: white;
+  transform: scale(0.8);
+  transition: .5s;
+}
+.description{
+  grid-area: description;
+  margin-left:20px;
+  margin-top: 15px;
+}
+.action{
+  grid-area: action;
+  text-align: center;
+
+}
+.action ul
+{
+  display: flex;
+  list-style: none;
+  margin-left: -10px;
+}
+.action ul li p{
+  margin-top:0;
+}
+.action li{
+  margin-right: 15px;
+}
+.action li a{
+  text-align: center;
+  text-decoration: none;
+  color: #2e2e2e;
+}
+.action button{
+  margin-top: 10px;
+  background: linear-gradient(to left,#db1178,#c90021);
+color: white;
+border-radius: .5em;
+padding: .5em 1em;
+border: none;
+}
+.action, .references{
+margin-top: -20px;
+margin-bottom: -10px;
+}
+.references{
+  grid-area: references;
+}
+.b1, .b2, .b3, .b4{
+  color: white;
+border-radius: .5em;
+padding: .2em .7em;
+border: none;
+}
+.references button:hover, .action button:hover{
+  background-color: #151b31;
+  cursor: pointer;
+}
+.references .b1{
+ background: #8d3cf4;
+}
+.references .b2{
+ background: #27fdbc;
+}
+.references .b3{
+ background: #c90021;
+}
+.references .b4{
+ background: #db1178;
+}
+.comments{
+  grid-area: comments;
+  margin-left: 25px;
+
+}
+.comentario{
+ display: grid;
+ grid-template-areas:"avatar nombre"
+                     "avatar legend"  ;
+ grid-template-columns: .5fr 3fr;
+ margin-top: 20px;
+ color:#2E2E2E;
+ width: 90%;
+}
+.avatar{
+  grid-area: avatar;
+}
+.avatar img{
+
+}
+.nombre{
+  grid-area: nombre;
+  align-self: end;
+}
+.legend{
+  grid-area: legend;
+
+align-self: start;
+}
+.comments input{
+  background-color:#e0dce0;
+  text-decoration: none;
+  padding: 10px 46px;
+  width: 70%;
+  border: none;
+  border-radius: 10px;
+}
+.comments{
+  position: relative;
+}
+.comments .image-com{
+  border: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.viewmore{
+  grid-area: viewmore;
+  margin-left: 20px;
+  font-size: 14px;
+  color: #2E2E2E;
+}
+.viewmore img{
+  max-width: 75%;
+  box-shadow: 2px 5px 5px 2px rgba(0,0,0,0.2)
+
+}
+.viewmore p{
+  width: 75%;
+}
+@media screen and (max-width: 768px){
+  .container{
+    grid-template-areas: "playlist" "video" "buttons" "comments" "viewmore";
+    grid-template-rows: auto;
+      grid-template-columns: auto;
+  }
+  .playresponsive{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.5);
+  }
+  .bar{
+    font-size: 17px;
+  }
+  .nav-content{
+    display: none;
+  }
+  .movil-content{
+    display: grid;
+    justify-content: space-around;
+    opacity: 0.8;
+    animation-duration: 1s;
+    animation-name: slidein;
+      animation-direction: alternate;
+    color: white;
+  }
+
+  .lista{
+    grid-column: 1 / span 2;
+    grid-row: 3 / 3;
+  }
+  .friends{
+    grid-column: 3 / span 3;
+    grid-row: 3 / 3;
+
+  }
+  @keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%
+    }
+
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  }
+  .video{
+    height: 300px;
+  }
+  #movil {
+       display: flex;
+       order: 1;
+
+   }
+   .logo img{
+     max-width: 40px;
+     max-height: 40px;
+   }
+   .comments{
+     display: grid;
+     align-items: center;
+   }
+   .comments .image-com{
+     top: 0;
+     margin-top: 50px;
+   }
+   .viewmore{
+     display: flex;
+     align-content: center;
+     align-items: center;
+     flex-direction: column;
+     border-top: 2px solid #d4d0d0;
+   }
+   .viewmore img{
+     max-width: 90%;
+     cursor: pointer;
+     border-radius: 10px;
+   }
+   .viewmore img:hover{
+     background: #d4d0d0;
+     opacity: .8;
+   }
+   .viewmore p{
+     width: 90%;
+   }
+   .link{
+     margin-top: 30px;
+   }
+   h2{
+     text-align: center;
+   }
+}
+@media screen and (max-width: 400px){
+  .buttons{
+  grid-template-areas: "description " "action " "references";
+  display: grid;
+  grid-template-rows: auto;
+  align-self: flex-start;
+  grid-template-columns: auto;
+  height: auto;
+  padding-bottom: 20px;
+  }
+  .description{
+    margin-left: 0;
+  }
+   .action{
+     margin-left: -30px;
+   }
+}
