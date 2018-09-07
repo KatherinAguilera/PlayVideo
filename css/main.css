@@ -65,8 +65,6 @@ color: white;
   max-width: 80px;
   max-height: 80px;
 }
-.playlist figure{
-}
 .playlist ol{
 margin-right: 15px;
 }
@@ -97,18 +95,51 @@ max-width: 60px;
 max-height: 60px;
 border: 2px solid #ff595c;
 }
+.friends{
+  padding-top: 5px;
+}
 .name{
 margin-left: 15px;
 }
+
+/*Video*/
 .video{
   grid-area: video;
   position:relative;
-
-     padding-top: 56.25%;
+  padding-top: 56.25%;
 }
 .vistas{
   margin-top:-16px;
 }
+/*Botones*/
+
+  /*Like star**/
+        .likestart {
+          cursor: pointer;
+          width: 50px;
+          height: 50px;
+          background-image: url('../images/save-animado.png');
+          /*background-size: x y;*/
+          background-position: left;
+          background-size: 1350px 50px;
+          /*background: red;*/
+        }
+        .likestart.is-liked2 {
+          animation-name: likestar;
+          animation-duration: .5s;
+          animation-timing-function: steps(26);
+          animation-fill-mode: forwards;
+        }
+        @keyframes likestar {
+          0% {
+            background-position: left;
+          }
+          100% {
+            background-position: right;
+            /* background-position: -2600px 0; */
+          }
+        }
+
 .buttons{
 grid-area: buttons;
 grid-template-areas: "description description"
@@ -129,6 +160,11 @@ border-bottom: 2px solid #d4d0d0;
   grid-area: description;
   margin-left:20px;
   margin-top: 15px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  grid-template-rows: auto;
+  align-items: center;
 }
 .action{
   grid-area: action;
@@ -210,9 +246,7 @@ border: none;
 }
 .avatar{
   grid-area: avatar;
-}
-.avatar img{
-
+  padding-right: 15px;
 }
 .nombre{
   grid-area: nombre;
@@ -249,10 +283,13 @@ align-self: start;
   font-size: 14px;
   color: #2E2E2E;
 }
+.viewmore figure{
+  margin:0;
+}
 .viewmore img{
   max-width: 75%;
-  box-shadow: 2px 5px 5px 2px rgba(0,0,0,0.2)
-
+  box-shadow: 2px 5px 5px 2px rgba(0,0,0,0.2);
+  cursor: pointer;
 }
 .viewmore p{
   width: 75%;
@@ -277,7 +314,7 @@ align-self: start;
     display: none;
   }
   #movil{
-    cursor: none;
+    cursor: pointer;
   }
   .movil-content{
     display: grid;
@@ -318,7 +355,6 @@ align-self: start;
   #movil {
        display: flex;
        order: 1;
-
    }
    .logo img{
      max-width: 40px;
@@ -326,11 +362,35 @@ align-self: start;
    }
    .comments{
      display: grid;
-     align-items: center;
+     grid-template-columns:auto;
+     margin: 0;
+     grid-template-rows: auto;
+     position: static;
+     max-width: 768px;
+     padding-left: 20px;
+     padding-right: 20px;
+   }
+   .comments input{
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    height: 40px;
+    text-align: center;
+    line-height: center;
+   }
+   .comentario{
+    width: 100%;
    }
    .comments .image-com{
      top: 0;
-     margin-top: 50px;
+     margin-top: 0;
+   }
+   .caja{
+    position: relative;
+   }
+   .avatar{
+    padding-right: 20px;
+    padding-left: 20px;
    }
    .viewmore{
      display: flex;
@@ -338,10 +398,11 @@ align-self: start;
      align-items: center;
      flex-direction: column;
      border-top: 2px solid #d4d0d0;
+     margin-top:20px;
+     margin-left: 0;
    }
    .viewmore img{
      max-width: 90%;
-     cursor: pointer;
      border-radius: 10px;
    }
    .viewmore img:hover{
@@ -352,11 +413,9 @@ align-self: start;
      width: 90%;
    }
    .link{
-     margin-top: 30px;
+     margin-top: 5px;
    }
-   h2{
-     text-align: center;
-   }
+  
 
 }
 @media screen and (max-width: 400px){
@@ -368,11 +427,33 @@ align-self: start;
   grid-template-columns: auto;
   height: auto;
   padding-bottom: 20px;
+  font-size: 14px;
+  }
+  .add{
+    font-size: 12px;
+  }
+  .playlist{
+    font-size: 13px;
   }
   .description{
     margin-left: 0;
   }
    .action{
      margin-left: -30px;
+   }
+   .caja{
+    margin:0;
+   }
+   .comments{
+    font-size: 13px;
+   }
+   .references{
+    margin-top: 10px;
+   }
+   .h2{
+    margin-left: 30px;
+   }
+   .viewmore p{
+    font-size: 13px;
    }
 }
